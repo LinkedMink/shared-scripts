@@ -1,0 +1,20 @@
+name: Validate Main
+
+concurrency: 
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate GitHub Actios
+        run: yamllint /.github/workflows/*.y{,}ml
