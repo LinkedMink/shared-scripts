@@ -17,4 +17,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Validate GitHub Actios
-        run: yamllint /.github/workflows/*.y{,}ml
+        run: yamllint .github/workflows/*.y{,}ml
