@@ -1,15 +1,18 @@
+---
 name: Validate Main
 
-concurrency: 
+concurrency:
   group: validate-${{ github.ref }}
   cancel-in-progress: true
+
+# yamllint disable-line rule:truthy
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
   validate:
@@ -17,4 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Validate GitHub Actios
-        run: yamllint .github/workflows/*.y{,}ml
+        run: yamllint .github/workflows/*.yml
