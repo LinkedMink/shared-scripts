@@ -18,6 +18,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Validate GitHub Actios
+      - name: Checkout Source
+        uses: actions/checkout@v2
+      - name: Validate GitHub Actions YML
         run: yamllint .github/workflows/*.yml
